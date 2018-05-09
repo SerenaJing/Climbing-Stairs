@@ -1,0 +1,25 @@
+Suppose the final stairs are one,two,three,……,and others.
+So the result is to add these situations.
+way[0] is respresentative for the final stair just one, way[1] is two.
+n = 1, ways = 1； 
+n = 2, ways = 2； 
+n = 3, ways = 3； 
+… 
+n = k, ways = ways[k-1] + ways[k-2]；
+
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+    if(n == ''||n == 1) return 1;
+    else if(n == 2) return 2
+    var way = [];
+    way[0] = 1;
+    way[1] = 2;
+    for(var i=2;i<n;i++) {
+        way[i] = way[i-1] + way[i-2];
+    }
+    return way[n-1];
+};
